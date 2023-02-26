@@ -22,8 +22,10 @@ public class OffspringTypeEntity {
     private Long id;
 
     @NotBlank
-    private String offspringType;
-    private String offspringCode;
+    @Column(name = "offspring_type", nullable = false, unique = true, length = 48)
+    private String type;
+    @Column(name = "offspring_code", unique = true, length = 24)
+    private String code;
     private Boolean isDefault;
 
     @Version

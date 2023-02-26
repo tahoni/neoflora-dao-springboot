@@ -22,8 +22,12 @@ public class GeneraEntity {
     @Column(name = "id", nullable = false)
     private Long id;
 
-    @NotBlank
+    @Column(name = "codes", nullable = false, unique = true, length = 48)
+    private String code;
+    @Column(name = "descr", length = 126)
     private String description;
+    @Column(name = "comments", length = 512)
+    private String comments;
 
     @OneToMany(mappedBy = "genera")
     @ToString.Exclude

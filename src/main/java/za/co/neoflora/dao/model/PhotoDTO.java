@@ -1,18 +1,17 @@
 package za.co.neoflora.dao.model;
 
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
+import org.springframework.lang.NonNull;
 
 import java.util.Set;
 
 @Data
 @RequiredArgsConstructor
 public class PhotoDTO {
-    @NotNull
+    @NonNull
     private Long id;
-    @NotBlank
+    @NonNull
     private String photo;
     private String description;
     private String comments;

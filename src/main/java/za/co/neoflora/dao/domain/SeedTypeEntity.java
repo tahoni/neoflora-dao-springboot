@@ -22,8 +22,10 @@ public class SeedTypeEntity {
     private Long id;
 
     @NotBlank
-    private String seedType;
-    private String seedCode;
+    @Column(name = "seed_type", nullable = false, unique = true, length = 48)
+    private String type;
+    @Column(name = "seed_code", unique = true, length = 24)
+    private String code;
     private Boolean isDefault;
 
     @Version

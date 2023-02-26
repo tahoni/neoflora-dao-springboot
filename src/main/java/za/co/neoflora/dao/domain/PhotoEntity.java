@@ -23,8 +23,11 @@ public class PhotoEntity {
     private Long id;
 
     @NotBlank
+    @Column(name = "image", nullable = false, length = 126)
     private String image;
+    @Column(name = "descr", length = 126)
     private String description;
+    @Column(name = "comments", length = 512)
     private String comments;
 
     @ManyToMany

@@ -1,17 +1,16 @@
 package za.co.neoflora.dao.model;
 
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
+import org.springframework.lang.NonNull;
 
 @Data
 @RequiredArgsConstructor
 public class OffspringTypeDTO {
-    @NotNull
+    @NonNull
     private Long id;
-    @NotBlank
-    private String offspringType;
-   private String offspringCode;
+    @NonNull
+    private String type;
+    private String code;
     private Boolean isDefault;
 }

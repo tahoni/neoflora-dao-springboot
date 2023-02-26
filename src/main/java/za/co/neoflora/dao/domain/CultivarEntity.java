@@ -23,8 +23,11 @@ public class CultivarEntity {
     private Long id;
 
     @NotBlank
-    private String codes;
+    @Column(name = "codes", nullable = false, unique = true, length = 48)
+    private String code;
+    @Column(name = "descr", length = 126)
     private String description;
+    @Column(name = "comments", length = 512)
     private String comments;
 
     @ManyToOne
@@ -36,19 +39,13 @@ public class CultivarEntity {
     @ManyToOne
     @JoinColumn(name = "father_id")
     private CultivarEntity father;
+    @ManyToOne
+    @JoinColumn(name = "seed_type_id")
+    private SeedTypeEntity seed;
+    @ManyToOne
+    @JoinColumn(name = "offspring_type_id")
+    private OffspringTypeEntity offspring;
 
-    @ManyToMany
-    @JoinTable(name = "cultivar_seed",
-            joinColumns = @JoinColumn(name = "cultivar_id"),
-            inverseJoinColumns = @JoinColumn(name = "seed_type_id"))
-    @ToString.Exclude
-    private Set<SeedTypeEntity> seeds;
-    @ManyToMany
-    @JoinTable(name = "cultivar_offspring",
-            joinColumns = @JoinColumn(name = "cultivar_id"),
-            inverseJoinColumns = @JoinColumn(name = "offspring_type_id"))
-    @ToString.Exclude
-    private Set<OffspringTypeEntity> offspring;
     @ManyToMany
     @JoinTable(name = "cultivar_photo",
             joinColumns = @JoinColumn(name = "cultivar_id"),

@@ -1,9 +1,8 @@
 package za.co.neoflora.dao.model;
 
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
+import org.springframework.lang.NonNull;
 import za.co.neoflora.dao.domain.PhotoEntity;
 
 import java.util.Set;
@@ -11,17 +10,18 @@ import java.util.Set;
 @Data
 @RequiredArgsConstructor
 public class CultivarDTO {
-    @NotNull
+    @NonNull
     private Long id;
-    @NotBlank
-    private String codes;
+    @NonNull
+    private String code;
     private String descriptions;
     private String comments;
 
+    private GeneraDTO genera;
     private CultivarDTO mother;
     private CultivarDTO father;
+    private SeedTypeDTO seed;
+    private OffspringTypeDTO offspring;
 
-    private Set<SeedTypeDTO> seeds;
-    private Set<OffspringTypeDTO> offspring;
     private Set<PhotoEntity> photos;
 }
