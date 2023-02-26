@@ -15,7 +15,7 @@ import java.util.Objects;
 @ToString
 @RequiredArgsConstructor
 @Entity(name = "offspring_type")
-public class OffspringTypeEntity {
+public class OffspringType {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id", nullable = false)
@@ -35,7 +35,7 @@ public class OffspringTypeEntity {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || Hibernate.getClass(this) != Hibernate.getClass(o)) return false;
-        OffspringTypeEntity that = (OffspringTypeEntity) o;
+        OffspringType that = (OffspringType) o;
         return getId() != null && Objects.equals(getId(), that.getId());
     }
 

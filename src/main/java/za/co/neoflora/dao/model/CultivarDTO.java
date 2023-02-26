@@ -3,7 +3,7 @@ package za.co.neoflora.dao.model;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
 import org.springframework.lang.NonNull;
-import za.co.neoflora.dao.domain.PhotoEntity;
+import za.co.neoflora.dao.domain.Photo;
 
 import java.util.Set;
 
@@ -23,5 +23,5 @@ public class CultivarDTO {
     private SeedTypeDTO seed;
     private OffspringTypeDTO offspring;
 
-    private Set<PhotoEntity> photos;
+    private Set<Photo> photos;
 }

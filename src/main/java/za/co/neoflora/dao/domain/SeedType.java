@@ -15,9 +15,9 @@ import java.util.Objects;
 @ToString
 @RequiredArgsConstructor
 @Entity(name = "seed_type")
-public class SeedTypeEntity {
+public class SeedType {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
     private Long id;
 
@@ -35,7 +35,7 @@ public class SeedTypeEntity {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || Hibernate.getClass(this) != Hibernate.getClass(o)) return false;
-        SeedTypeEntity that = (SeedTypeEntity) o;
+        SeedType that = (SeedType) o;
         return getId() != null && Objects.equals(getId(), that.getId());
     }
 
