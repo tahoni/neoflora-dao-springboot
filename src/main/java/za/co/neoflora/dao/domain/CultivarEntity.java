@@ -1,0 +1,74 @@
+package za.co.neoflora.dao.domain;
+
+import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
+import lombok.Getter;
+import lombok.RequiredArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
+import org.hibernate.Hibernate;
+
+import java.util.Objects;
+import java.util.Set;
+
+@Getter
+@Setter
+@ToString
+@RequiredArgsConstructor
+@Entity(name = "cultivar")
+public class CultivarEntity {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id", nullable = false)
+    private Long id;
+
+    @NotBlank
+    private String codes;
+    private String description;
+    private String comments;
+
+    @ManyToOne
+    @JoinColumn(name = "genera_id")
+    private GeneraEntity genera;
+    @ManyToOne
+    @JoinColumn(name = "mother_id")
+    private CultivarEntity mother;
+    @ManyToOne
+    @JoinColumn(name = "father_id")
+    private CultivarEntity father;
+
+    @ManyToMany
+    @JoinTable(name = "cultivar_seed",
+            joinColumns = @JoinColumn(name = "cultivar_id"),
+            inverseJoinColumns = @JoinColumn(name = "seed_type_id"))
+    @ToString.Exclude
+    private Set<SeedTypeEntity> seeds;
+    @ManyToMany
+    @JoinTable(name = "cultivar_offspring",
+            joinColumns = @JoinColumn(name = "cultivar_id"),
+            inverseJoinColumns = @JoinColumn(name = "offspring_type_id"))
+    @ToString.Exclude
+    private Set<OffspringTypeEntity> offspring;
+    @ManyToMany
+    @JoinTable(name = "cultivar_photo",
+            joinColumns = @JoinColumn(name = "cultivar_id"),
+            inverseJoinColumns = @JoinColumn(name = "photo_id"))
+    @ToString.Exclude
+    private Set<PhotoEntity> photos;
+
+    @Version
+    private Integer version;
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || Hibernate.getClass(this) != Hibernate.getClass(o)) return false;
+        CultivarEntity that = (CultivarEntity) o;
+        return getId() != null && Objects.equals(getId(), that.getId());
+    }
+
+    @Override
+    public int hashCode() {
+        return getClass().hashCode();
+    }
+}
