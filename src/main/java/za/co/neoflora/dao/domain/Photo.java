@@ -23,7 +23,7 @@ public class Photo {
     private Long id;
 
     @NotBlank
-    @Column(name = "image", nullable = false, length = 126)
+    @Column(name = "image", nullable = false)
     private String image;
     @Column(name = "descr", length = 126)
     private String description;
@@ -51,5 +51,10 @@ public class Photo {
     @Override
     public int hashCode() {
         return getClass().hashCode();
+    }
+
+    @Override
+    public String toString() {
+        return description;
     }
 }

@@ -14,7 +14,7 @@ public class CultivarDTO {
     private Long id;
     @NonNull
     private String code;
-    private String descriptions;
+    private String description;
     private String comments;
 
     private GeneraDTO genera;
@@ -24,4 +24,10 @@ public class CultivarDTO {
     private OffspringTypeDTO offspring;
 
     private Set<Photo> photos;
+
+    @Override
+    public String toString() {
+        return genera.getCode() + " " + code + " = " + mother.getCode() + " x " + father.getCode() +
+                " - " + description;
+    }
 }

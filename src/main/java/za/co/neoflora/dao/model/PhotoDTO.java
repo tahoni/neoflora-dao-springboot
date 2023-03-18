@@ -17,4 +17,9 @@ public class PhotoDTO {
     private String comments;
 
     private Set<CultivarDTO> cultivars;
+
+    @Override
+    public String toString() {
+        return description;
+    }
 }

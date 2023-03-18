@@ -13,4 +13,9 @@ public class SeedTypeDTO {
     private String type;
     private String code;
     private Boolean isDefault;
+
+    @Override
+    public String toString() {
+        return code + " - " + type;
+    }
 }
