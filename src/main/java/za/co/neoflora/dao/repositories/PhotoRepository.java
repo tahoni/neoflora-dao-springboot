@@ -33,4 +33,10 @@ public interface PhotoRepository extends JpaRepository<Photo, Long> {
     @NonNull
     @Override
     <S extends Photo> List<S> saveAllAndFlush(@NonNull Iterable<S> photos);
+
+    // Delete
+    @Override
+    void deleteById(@NonNull Long id);
+    @Override
+    void deleteAllById(@NonNull Iterable<? extends Long> ids);
 }
