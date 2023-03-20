@@ -68,10 +68,4 @@ public class Cultivar {
     public int hashCode() {
         return getClass().hashCode();
     }
-
-    @Override
-    public String toString() {
-        return genera.getCode() + " " + code + " = " + mother.getCode() + " x " + father.getCode() +
-                " - " + description;
-    }
 }

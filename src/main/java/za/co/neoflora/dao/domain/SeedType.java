@@ -43,9 +43,4 @@ public class SeedType {
     public int hashCode() {
         return getClass().hashCode();
     }
-
-    @Override
-    public String toString() {
-        return code + " - " + type;
-    }
 }

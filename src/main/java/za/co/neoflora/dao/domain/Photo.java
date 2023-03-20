@@ -52,9 +52,4 @@ public class Photo {
     public int hashCode() {
         return getClass().hashCode();
     }
-
-    @Override
-    public String toString() {
-        return description;
-    }
 }
