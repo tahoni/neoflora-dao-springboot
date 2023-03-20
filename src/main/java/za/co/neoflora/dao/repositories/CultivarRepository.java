@@ -7,6 +7,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.lang.NonNull;
 import za.co.neoflora.dao.domain.Cultivar;
 
+import java.util.Collection;
 import java.util.List;
 import java.util.Optional;
 
@@ -21,6 +22,8 @@ public interface CultivarRepository extends JpaRepository<Cultivar, Long> {
     @NonNull
     @Override
     Page<Cultivar> findAll(@NonNull Pageable pageable);
+    @NonNull
+    Page<Cultivar> findByIdIn(@NonNull Collection<Long> ids, Pageable pageable);
 
     // Identity searches
     Optional<Cultivar> findByCodeEquals(String code);
