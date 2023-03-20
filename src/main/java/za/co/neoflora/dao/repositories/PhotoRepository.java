@@ -19,4 +19,18 @@ public interface PhotoRepository extends JpaRepository<Photo, Long> {
 
     // Info searches
     List<Photo> findAllByDescriptionLikeIgnoreCase(String description, Sort sort);
+
+    // Save and optionally flush
+    @NonNull
+    @Override
+    <S extends Photo> S save(@NonNull S photo);
+    @NonNull
+    @Override
+    <S extends Photo> S saveAndFlush(@NonNull S photo);
+    @NonNull
+    @Override
+    <S extends Photo> List<S> saveAll(@NonNull Iterable<S> photos);
+    @NonNull
+    @Override
+    <S extends Photo> List<S> saveAllAndFlush(@NonNull Iterable<S> photos);
 }

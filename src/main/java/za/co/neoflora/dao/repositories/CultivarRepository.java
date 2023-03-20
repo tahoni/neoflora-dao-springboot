@@ -35,4 +35,18 @@ public interface CultivarRepository extends JpaRepository<Cultivar, Long> {
     List<Cultivar> findAllByFatherCodeEqualsIgnoreCase(String fatherCode, Sort sort);
     List<Cultivar> findAllByMotherCodeEqualsIgnoreCaseAndFatherCodeEqualsIgnoreCase(String motherCode, String fatherCode, Sort sort);
     List<Cultivar> findAllByMotherCodeEqualsIgnoreCaseOrFatherCodeEqualsIgnoreCase(String motherCode, String fatherCode, Sort sort);
+
+    // Save and optionally flush
+    @NonNull
+    @Override
+    <S extends Cultivar> S save(@NonNull S cultivar);
+    @NonNull
+    @Override
+    <S extends Cultivar> S saveAndFlush(@NonNull S cultivar);
+    @NonNull
+    @Override
+    <S extends Cultivar> List<S> saveAll(@NonNull Iterable<S> cultivars);
+    @NonNull
+    @Override
+    <S extends Cultivar> List<S> saveAllAndFlush(@NonNull Iterable<S> cultivars);
 }

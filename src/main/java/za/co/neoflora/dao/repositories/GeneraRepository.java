@@ -27,4 +27,18 @@ public interface GeneraRepository extends JpaRepository<Genera, Long> {
 
     // Info searches
     List<Genera> findAllByDescriptionLikeIgnoreCase(String description, Sort sort);
+
+    // Save and optionally flush
+    @NonNull
+    @Override
+    <S extends Genera> S save(@NonNull S genera);
+    @NonNull
+    @Override
+    <S extends Genera> S saveAndFlush(@NonNull S genera);
+    @NonNull
+    @Override
+    <S extends Genera> List<S> saveAll(@NonNull Iterable<S> genera);
+    @NonNull
+    @Override
+    <S extends Genera> List<S> saveAllAndFlush(@NonNull Iterable<S> genera);
 }
