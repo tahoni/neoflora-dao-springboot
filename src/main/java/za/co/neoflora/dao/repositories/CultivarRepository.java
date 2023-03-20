@@ -2,12 +2,21 @@ package za.co.neoflora.dao.repositories;
 
 import org.springframework.data.domain.Sort;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.lang.NonNull;
 import za.co.neoflora.dao.domain.Cultivar;
 
 import java.util.List;
 import java.util.Optional;
 
 public interface CultivarRepository extends JpaRepository<Cultivar, Long> {
+    // Key searches
+    @NonNull
+    @Override
+    Optional<Cultivar> findById(@NonNull Long id);
+    @NonNull
+    @Override
+    List<Cultivar> findAllById(@NonNull Iterable<Long> ids);
+
     // Identity searches
     Optional<Cultivar> findByCodeEquals(String code);
     List<Cultivar> findAllByCodeIn(List<String> codes, Sort sort);
