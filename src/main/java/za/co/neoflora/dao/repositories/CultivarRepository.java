@@ -1,5 +1,7 @@
 package za.co.neoflora.dao.repositories;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.lang.NonNull;
@@ -16,6 +18,9 @@ public interface CultivarRepository extends JpaRepository<Cultivar, Long> {
     @NonNull
     @Override
     List<Cultivar> findAllById(@NonNull Iterable<Long> ids);
+    @NonNull
+    @Override
+    Page<Cultivar> findAll(@NonNull Pageable pageable);
 
     // Identity searches
     Optional<Cultivar> findByCodeEquals(String code);
@@ -23,18 +28,18 @@ public interface CultivarRepository extends JpaRepository<Cultivar, Long> {
     List<Cultivar> findAllByCodeLike(String code, Sort sort);
 
     // Info searches
-    List<Cultivar> findAllByDescriptionLikeIgnoreCase(String description, Sort sort);
+    <S extends Cultivar> Page<S> findAllByDescriptionLikeIgnoreCase(String description, Pageable pageable);
 
     // Search by genera
-    List<Cultivar> findAllByGeneraCodeEqualsIgnoreCase(String generaCode, Sort sort);
-    List<Cultivar> findAllByGeneraCodeEqualsIgnoreCaseAndCodeLike(String generaCode, String code, Sort sort);
-    List<Cultivar> findAllByGeneraCodeEqualsIgnoreCaseAndCodeIn(String generaCode, List<String> codes, Sort sort);
+    <S extends Cultivar> Page<S> findAllByGeneraCodeEqualsIgnoreCase(String generaCode, Pageable pageable);
+    <S extends Cultivar> Page<S> findAllByGeneraCodeEqualsIgnoreCaseAndCodeLike(String generaCode, String code, Pageable pageable);
+    <S extends Cultivar> Page<S> findAllByGeneraCodeEqualsIgnoreCaseAndCodeIn(String generaCode, List<String> codes, Pageable pageable);
 
     // Search by mother and/or father
-    List<Cultivar> findAllByMotherCodeEqualsIgnoreCase(String motherCode, Sort sort);
-    List<Cultivar> findAllByFatherCodeEqualsIgnoreCase(String fatherCode, Sort sort);
-    List<Cultivar> findAllByMotherCodeEqualsIgnoreCaseAndFatherCodeEqualsIgnoreCase(String motherCode, String fatherCode, Sort sort);
-    List<Cultivar> findAllByMotherCodeEqualsIgnoreCaseOrFatherCodeEqualsIgnoreCase(String motherCode, String fatherCode, Sort sort);
+    <S extends Cultivar> Page<S> findAllByMotherCodeEqualsIgnoreCase(String motherCode, Pageable pageable);
+    <S extends Cultivar> Page<S> findAllByFatherCodeEqualsIgnoreCase(String fatherCode, Pageable pageable);
+    <S extends Cultivar> Page<S> findAllByMotherCodeEqualsIgnoreCaseAndFatherCodeEqualsIgnoreCase(String motherCode, String fatherCode, Pageable pageable);
+    <S extends Cultivar> Page<S> findAllByMotherCodeEqualsIgnoreCaseOrFatherCodeEqualsIgnoreCase(String motherCode, String fatherCode, Pageable pageable);
 
     // Save and optionally flush
     @NonNull
