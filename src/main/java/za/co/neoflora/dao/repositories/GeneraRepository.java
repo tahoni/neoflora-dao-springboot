@@ -41,4 +41,10 @@ public interface GeneraRepository extends JpaRepository<Genera, Long> {
     @NonNull
     @Override
     <S extends Genera> List<S> saveAllAndFlush(@NonNull Iterable<S> genera);
+
+    // Delete
+    @Override
+    void deleteById(@NonNull Long id);
+    @Override
+    void deleteAllById(@NonNull Iterable<? extends Long> ids);
 }

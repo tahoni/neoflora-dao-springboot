@@ -57,4 +57,10 @@ public interface CultivarRepository extends JpaRepository<Cultivar, Long> {
     @NonNull
     @Override
     <S extends Cultivar> List<S> saveAllAndFlush(@NonNull Iterable<S> cultivars);
+
+    // Delete
+    @Override
+    void deleteById(@NonNull Long id);
+    @Override
+    void deleteAllById(@NonNull Iterable<? extends Long> ids);
 }
