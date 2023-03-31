@@ -30,7 +30,7 @@ public class Genera {
 
     @OneToMany(mappedBy = "genera")
     @ToString.Exclude
-    private Set<Cultivar> cultivars;
+    private Set<Hybrid> hybrids;
 
     @Version
     private Integer version;

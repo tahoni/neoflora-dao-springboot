@@ -16,7 +16,7 @@ public class PhotoDTO {
     private String description;
     private String comments;
 
-    private Set<CultivarDTO> cultivars;
+    private Set<HybridDTO> hybrids;
 
     @Override
     public String toString() {
