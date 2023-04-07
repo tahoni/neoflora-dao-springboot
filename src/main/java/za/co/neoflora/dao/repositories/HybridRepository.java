@@ -26,9 +26,9 @@ public interface HybridRepository extends JpaRepository<Hybrid, Long> {
     Page<Hybrid> findByIdIn(@NonNull Collection<Long> ids, Pageable pageable);
 
     // Identity searches
-    Optional<Hybrid> findByCodeEquals(String code);
-    List<Hybrid> findAllByCodeIn(List<String> codes, Sort sort);
-    List<Hybrid> findAllByCodeLike(String code, Sort sort);
+    Optional<Hybrid> findByCodeEqualsIgnoreCase(String code);
+    List<Hybrid> findAllByCodeIn(Collection<String> codes, Sort sort);
+    List<Hybrid> findAllByCodeLikeIgnoreCase(String code, Sort sort);
 
     // Info searches
     <S extends Hybrid> Page<S> findAllByDescriptionLikeIgnoreCase(String description, Pageable pageable);
@@ -36,7 +36,7 @@ public interface HybridRepository extends JpaRepository<Hybrid, Long> {
     // Search by genera
     <S extends Hybrid> Page<S> findAllByGeneraCodeEqualsIgnoreCase(String generaCode, Pageable pageable);
     <S extends Hybrid> Page<S> findAllByGeneraCodeEqualsIgnoreCaseAndCodeLike(String generaCode, String code, Pageable pageable);
-    <S extends Hybrid> Page<S> findAllByGeneraCodeEqualsIgnoreCaseAndCodeIn(String generaCode, List<String> codes, Pageable pageable);
+    <S extends Hybrid> Page<S> findAllByGeneraCodeEqualsIgnoreCaseAndCodeIn(String generaCode, Collection<String> codes, Pageable pageable);
 
     // Search by mother and/or father
     <S extends Hybrid> Page<S> findAllByMotherCodeEqualsIgnoreCase(String motherCode, Pageable pageable);
