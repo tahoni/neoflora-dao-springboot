@@ -1,0 +1,21 @@
+# Server
+server:
+  port: 8181
+  servlet:
+    context-path: /neoflora-dao
+---
+# JPA
+spring:
+  jpa:
+    hibernate:
+      ddl-auto: none
+    show-sql: false
+---
+# Database
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/neoflora
+    hikari:
+      username: ${DB_USERNAME}
+      password: ${DB_PASSWORD}
