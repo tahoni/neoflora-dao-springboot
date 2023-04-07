@@ -1,6 +1,7 @@
 package za.co.neoflora.dao.domain;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
@@ -21,6 +22,7 @@ public class Genera {
     @Column(name = "id", nullable = false)
     private Long id;
 
+    @NotBlank
     @Column(name = "codes", nullable = false, unique = true, length = 48)
     private String code;
     @Column(name = "descr", length = 126)
