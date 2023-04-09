@@ -7,20 +7,21 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>3.0.4</version>
+		<version>3.0.5</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 
 	<!-- Application -->
 	<groupId>za.co.neoflora</groupId>
 	<artifactId>neoflora-dao</artifactId>
-	<version>1.00</version>
+	<version>1.10</version>
 	<name>neoflora-dao</name>
 	<description>Neoflora DAO</description>
 
 	<!-- Versions -->
 	<properties>
-		<java.version>19</java.version>
+		<java.version>20</java.version>
+		<springboot.version>3.0.5</springboot.version>
 		<testcontainers.version>1.17.6</testcontainers.version>
 	</properties>
 
@@ -119,6 +120,7 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+				<version>${springboot.version}</version>
 				<configuration>
 					<excludes>
 						<exclude>
