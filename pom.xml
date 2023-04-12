@@ -14,13 +14,13 @@
 	<!-- Application -->
 	<groupId>za.co.neoflora</groupId>
 	<artifactId>neoflora-dao</artifactId>
-	<version>1.21</version>
+	<version>1.23</version>
 	<name>neoflora-dao</name>
 	<description>Neoflora DAO</description>
 
 	<!-- Versions -->
 	<properties>
-		<java.version>20</java.version>
+		<java.version>17</java.version>
 		<springboot.version>3.0.5</springboot.version>
 	</properties>
 
