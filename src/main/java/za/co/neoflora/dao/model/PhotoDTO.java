@@ -17,14 +17,17 @@ public class PhotoDTO {
     private String photo;
     private String description;
     private String comments;
+    private Boolean isDefault;
 
     private Set<HybridDTO> hybrids;
     private Set<CultivarDTO> cultivars;
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof PhotoDTO photoDTO)) return false;
+        if (this == o)
+            return true;
+        if (!(o instanceof PhotoDTO photoDTO))
+            return false;
         return Objects.equals(getPhoto(), photoDTO.getPhoto());
     }
 
