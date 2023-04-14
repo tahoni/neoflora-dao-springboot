@@ -101,4 +101,5 @@ hs_err_pid*
 ### CUSTOM ###
 .npmrc
 .run/
+.vscode/launch.json
 target/
