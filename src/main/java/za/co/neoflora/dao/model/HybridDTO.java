@@ -2,6 +2,7 @@ package za.co.neoflora.dao.model;
 
 import jakarta.validation.constraints.NotBlank;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import org.springframework.lang.NonNull;
 import za.co.neoflora.dao.domain.Photo;
@@ -10,6 +11,7 @@ import java.util.Objects;
 import java.util.Set;
 
 @Data
+@NoArgsConstructor
 @RequiredArgsConstructor
 public class HybridDTO {
     @NonNull
@@ -25,12 +27,14 @@ public class HybridDTO {
     private SeedTypeDTO seed;
     private OffspringTypeDTO offspring;
 
-    private Set<Photo> photos;
+    private Set<PhotoDTO> photos;
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof HybridDTO hybridDTO)) return false;
+        if (this == o)
+            return true;
+        if (!(o instanceof HybridDTO hybridDTO))
+            return false;
         return getCode().equals(hybridDTO.getCode());
     }
 

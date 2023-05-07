@@ -29,7 +29,6 @@ public class Photo {
     private String description;
     @Column(name = "comments", length = 512)
     private String comments;
-    private Boolean isDefault;
 
     @ManyToMany
     @JoinTable(name = "hybrid_photo", joinColumns = @JoinColumn(name = "photo_id"), inverseJoinColumns = @JoinColumn(name = "hybrid_id"))

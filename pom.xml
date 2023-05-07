@@ -7,21 +7,21 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>3.0.5</version>
+		<version>3.0.6</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 
 	<!-- Application -->
 	<groupId>za.co.neoflora</groupId>
 	<artifactId>neoflora-dao</artifactId>
-	<version>1.24</version>
+	<version>1.35</version>
 	<name>neoflora-dao</name>
 	<description>Neoflora DAO</description>
 
 	<!-- Versions -->
 	<properties>
 		<java.version>17</java.version>
-		<springboot.version>3.0.5</springboot.version>
+		<springboot.version>3.0.6</springboot.version>
 	</properties>
 
 	<dependencies>

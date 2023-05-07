@@ -2,6 +2,7 @@ package za.co.neoflora.dao.model;
 
 import jakarta.validation.constraints.NotBlank;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import org.springframework.lang.NonNull;
 
@@ -9,6 +10,7 @@ import java.util.Objects;
 import java.util.Set;
 
 @Data
+@NoArgsConstructor
 @RequiredArgsConstructor
 public class CultivarDTO {
     @NonNull
@@ -24,8 +26,10 @@ public class CultivarDTO {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof CultivarDTO that)) return false;
+        if (this == o)
+            return true;
+        if (!(o instanceof CultivarDTO that))
+            return false;
         return getCode().equals(that.getCode());
     }
 
