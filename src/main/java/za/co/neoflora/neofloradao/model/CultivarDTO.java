@@ -1,4 +1,4 @@
-package za.co.neoflora.dao.model;
+package za.co.neoflora.neofloradao.model;
 
 import jakarta.validation.constraints.NotBlank;
 import lombok.Data;
@@ -7,26 +7,30 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.lang.NonNull;
 
 import java.util.Objects;
+import java.util.Set;
 
 @Data
 @NoArgsConstructor
 @RequiredArgsConstructor
-public class OffspringTypeDTO {
+public class CultivarDTO {
     @NonNull
     private Long id;
     @NotBlank
     private String code;
-    @NotBlank
-    private String type;
-    private Boolean isDefault;
+    private String description;
+    private String comments;
+
+    private HybridDTO hybrid;
+
+    private Set<PhotoDTO> photos;
 
     @Override
     public boolean equals(Object o) {
         if (this == o)
             return true;
-        if (!(o instanceof OffspringTypeDTO that))
+        if (!(o instanceof CultivarDTO that))
             return false;
-        return Objects.equals(getCode(), that.getCode());
+        return getCode().equals(that.getCode());
     }
 
     @Override
@@ -36,6 +40,6 @@ public class OffspringTypeDTO {
 
     @Override
     public String toString() {
-        return code + " - " + type;
+        return code + " = " + hybrid.getCode() + " - " + description;
     }
 }

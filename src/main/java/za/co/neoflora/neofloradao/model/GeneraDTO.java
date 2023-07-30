@@ -1,19 +1,17 @@
-package za.co.neoflora.dao.model;
+package za.co.neoflora.neofloradao.model;
 
 import jakarta.validation.constraints.NotBlank;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import org.springframework.lang.NonNull;
-import za.co.neoflora.dao.domain.Photo;
 
 import java.util.Objects;
-import java.util.Set;
 
 @Data
 @NoArgsConstructor
 @RequiredArgsConstructor
-public class HybridDTO {
+public class GeneraDTO {
     @NonNull
     private Long id;
     @NotBlank
@@ -21,21 +19,13 @@ public class HybridDTO {
     private String description;
     private String comments;
 
-    private GeneraDTO genera;
-    private HybridDTO mother;
-    private HybridDTO father;
-    private SeedTypeDTO seed;
-    private OffspringTypeDTO offspring;
-
-    private Set<PhotoDTO> photos;
-
     @Override
     public boolean equals(Object o) {
         if (this == o)
             return true;
-        if (!(o instanceof HybridDTO hybridDTO))
+        if (!(o instanceof GeneraDTO generaDTO))
             return false;
-        return getCode().equals(hybridDTO.getCode());
+        return getCode().equals(generaDTO.getCode());
     }
 
     @Override
@@ -45,7 +35,6 @@ public class HybridDTO {
 
     @Override
     public String toString() {
-        return genera.getCode() + " " + code + " = " + mother.getCode() + " x " + father.getCode() +
-                " - " + description;
+        return code + " - " + description;
     }
 }
