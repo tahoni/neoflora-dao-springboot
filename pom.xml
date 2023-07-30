@@ -14,7 +14,7 @@
 	<!-- Application -->
 	<groupId>za.co.neoflora</groupId>
 	<artifactId>neoflora-dao</artifactId>
-	<version>1.39</version>
+	<version>1.41</version>
 	<name>neoflora-dao</name>
 	<description>Neoflora DAO</description>
 
@@ -120,20 +120,6 @@
 						<version>${spring-restdocs.version}</version>
 					</dependency>
 				</dependencies>
-			</plugin>
-
-			<!-- Spring Boot integrations -->
-			<plugin>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-maven-plugin</artifactId>
-				<configuration>
-					<excludes>
-						<exclude>
-							<groupId>org.projectlombok</groupId>
-							<artifactId>lombok</artifactId>
-						</exclude>
-					</excludes>
-				</configuration>
 			</plugin>
 		</plugins>
 	</build>
