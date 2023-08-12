@@ -14,7 +14,7 @@
 	<!-- Application -->
 	<groupId>za.co.neoflora</groupId>
 	<artifactId>neoflora-dao</artifactId>
-	<version>1.42</version>
+	<version>1.5.0</version>
 	<name>neoflora-dao</name>
 	<description>Neoflora DAO</description>
 
