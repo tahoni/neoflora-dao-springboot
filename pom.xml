@@ -18,6 +18,12 @@
 	<name>neoflora-dao</name>
 	<description>Neoflora DAO</description>
 
+	<distributionManagement>
+		<repository>
+			<id>github</id>
+		</repository>
+	</distributionManagement>
+
 	<!-- Versions -->
 	<properties>
 		<java.version>17</java.version>
