@@ -18,16 +18,20 @@
 	<name>neoflora-dao</name>
 	<description>Neoflora DAO</description>
 
+	<!-- Variables -->
+	<properties>
+		<java.version>17</java.version>
+		<app.repo.url>https://maven.pkg.github.com</app.repo.url>
+		<app.repo.user>tahoni</app.repo.user>
+		<app.repo.name>neoflora-dao-springboot</app.repo.name>
+	</properties>
+
 	<distributionManagement>
 		<repository>
 			<id>github</id>
+			<url>${app.repo.url}/${app.repo.user}/${app.repo.name}</url>
 		</repository>
 	</distributionManagement>
-
-	<!-- Versions -->
-	<properties>
-		<java.version>17</java.version>
-	</properties>
 
 	<dependencies>
 		<!-- Spring Boot starters -->
