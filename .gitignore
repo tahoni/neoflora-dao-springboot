@@ -103,3 +103,4 @@ hs_err_pid*
 .run/
 .vscode/launch.json
 target/
+.idea/jpa-buddy.xml
